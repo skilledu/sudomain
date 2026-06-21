@@ -1,0 +1,1 @@
+sudomain is a powerful host management tool for localhost. Features a sleek Web UI to seamlessly edit, toggle, and backup your local DNS mappings. Developed by Skilledu.
