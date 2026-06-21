@@ -1,3 +1,9 @@
+<!-- 
+  Title: sudomain - The Ultimate Host Management Tool for Localhost
+  Description: Download and install sudomain. The premier host management tool for localhost. A premium Web UI to easily edit, manage, and backup your Windows hosts file and local DNS mappings.
+  Keywords: sudomain, host management tool for localhost, windows hosts file editor, localhost dns manager, skilledu, local development server, web ui hosts editor, localhost
+-->
+
 # sudomain - The Ultimate Host Management Tool for Localhost
 
 Welcome to **sudomain**, the premier **host management tool for localhost**. It is a premium, modern Web UI utility designed to easily manage, edit, backup, and organize your Windows hosts file (`C:\Windows\System32\drivers\etc\hosts`). If you are searching for a **host management tool for localhost**, **sudomain** provides the perfect web-based solution for developers and system administrators to control their local DNS mappings.
