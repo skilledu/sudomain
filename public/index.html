@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sudomain - Empowered by Skilled.u</title>
+  <!-- Google Fonts: Poppins (headings), Inter (body), JetBrains Mono (monospaced code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Login Page Overlay -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-card animate-pop">
+      <div class="login-brand">
+        <div class="logo-img-container">
+          <img src="https://skilledu.in/assets/img/logo/skilledU_Logo.png" alt="Skilled.u Logo" class="brand-logo-img">
+        </div>
+        <h2>sudomain</h2>
+        <span>Hosts File Management Console</span>
+      </div>
+      <form id="login-form">
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" placeholder="skilledu" required autocomplete="username">
+        </div>
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Access Console</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mobile Top Header Bar -->
+  <div class="mobile-header hidden" id="mobile-header">
+    <button class="hamburger-btn" id="btn-hamburger" title="Toggle Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px;">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+    <div class="mobile-brand" style="display:flex;align-items:center;gap:10px;">
+      <div style="background:#fff;padding:2px 8px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+        <img src="https://skilledu.in/assets/img/logo/skilledU_Logo.png" alt="Skilled.u Logo" class="brand-logo-img-sm" style="max-height:18px;">
+      </div>
+      <span class="mobile-brand-title" style="font-weight:300;color:#fff;font-size:1.1rem;letter-spacing:0.5px;">sudomain</span>
+    </div>
+    <div class="mobile-status-badge status-checking" id="mobile-status-badge" style="padding:2px 8px;font-size:0.75rem;border-radius:20px;display:flex;align-items:center;">
+      <div class="pulse-ring" style="width:6px;height:6px;"></div>
+    </div>
+  </div>
+
+  <div class="app-container hidden" id="app-container">
+    <!-- Sidebar Overlay Backdrop for Mobile -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo-img-container-sm">
+          <img src="https://skilledu.in/assets/img/logo/skilledU_Logo.png" alt="Skilled.u Logo" class="brand-logo-img-sm">
+        </div>
+        <div class="brand-text">
+          <h1>sudomain</h1>
+          <span>v1.2.0</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="nav-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+          </svg>
+          Dashboard & Entries
+        </button>
+        <button class="nav-item" data-tab="raw-editor">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="nav-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+          </svg>
+          Raw Text Editor
+        </button>
+        <button class="nav-item" data-tab="backups">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="nav-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+          </svg>
+          Backups & Restore
+        </button>
+        <button class="nav-item" data-tab="settings">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="nav-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.43l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.645-.869L9.594 3.94z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Console Settings
+        </button>
+        
+        <button class="nav-item" id="btn-logout" style="margin-top: auto; color: #f87171;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="nav-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+          </svg>
+          Sign Out
+        </button>
+      </nav>
+
+      <!-- Permissions Panel -->
+      <div class="permission-panel" id="permission-panel">
+        <div class="permission-badge status-checking" id="permission-badge">
+          <div class="pulse-ring"></div>
+          <span class="status-text">Checking access...</span>
+        </div>
+        <div class="permission-details hidden" id="permission-warning">
+          <p><strong>Read-Only Mode</strong></p>
+          <p id="permission-warning-text">To save changes, you must run this server from a terminal opened as <strong>Administrator</strong>.</p>
+        </div>
+        <div class="permission-details hidden" id="permission-success">
+          <p><strong>Admin Access Granted</strong></p>
+          <p>You can read and save modifications to the system hosts file.</p>
+        </div>
+      </div>
+      <!-- Designed by Skilled.u Badge -->
+      <div class="sidebar-footer">
+        <span>Empowered & Designed by</span>
+        <strong>Skilled.u</strong>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header Bar -->
+      <header class="content-header">
+        <div class="file-info">
+          <h2>Hosts File Path</h2>
+          <code id="hosts-path-display">C:\Windows\System32\drivers\etc\hosts</code>
+        </div>
+        <div class="actions-group">
+          <button class="btn btn-secondary btn-icon" id="btn-reload" title="Reload File">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-icon-svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            Reload
+          </button>
+        </div>
+      </header>
+
+      <!-- Tab 1: Dashboard & Structured List -->
+      <section id="tab-dashboard" class="tab-pane active">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="card stat-card">
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-label">Total Entries</div>
+          </div>
+          <div class="card stat-card border-active">
+            <div class="stat-value text-active" id="stat-active">0</div>
+            <div class="stat-label">Active Mappings</div>
+          </div>
+          <div class="card stat-card border-disabled">
+            <div class="stat-value text-disabled" id="stat-disabled">0</div>
+            <div class="stat-label">Disabled Mappings</div>
+          </div>
+        </div>
+
+        <!-- Add Entry Card -->
+        <div class="card add-entry-card">
+          <h3>Add New Host Mapping</h3>
+          <form id="add-entry-form" class="add-entry-form">
+            <div class="form-group">
+              <label for="input-ip">IP Address</label>
+              <input type="text" id="input-ip" placeholder="127.0.0.1" required>
+            </div>
+            <div class="form-group">
+              <label for="input-hosts">Domain Name(s)</label>
+              <input type="text" id="input-hosts" placeholder="mywebsite.local domain.test" required>
+            </div>
+            <div class="form-group">
+              <label for="input-comment">Comment (Optional)</label>
+              <input type="text" id="input-comment" placeholder="Local dev site">
+            </div>
+            <div class="form-group btn-group-form">
+              <label class="invisible-label">&nbsp;</label>
+              <button type="submit" class="btn btn-primary" id="btn-add-entry">
+                Add Entry
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- List Section -->
+        <div class="card list-card">
+          <div class="list-header">
+            <h3>Active Host Mappings</h3>
+            <div class="list-controls">
+              <div class="search-box">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="search-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+                <input type="text" id="search-input" placeholder="Search by domain, IP, or comment...">
+              </div>
+              <select id="filter-type" class="select-dropdown">
+                <option value="all">Show All Lines</option>
+                <option value="entries" selected>Show Entries Only</option>
+                <option value="active">Show Active Only</option>
+                <option value="disabled">Show Disabled Only</option>
+                <option value="comments">Show Comments Only</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="hosts-table" id="hosts-table">
+              <thead>
+                <tr>
+                  <th width="80">Status</th>
+                  <th width="180">IP Address</th>
+                  <th>Domain Name(s)</th>
+                  <th>Comment</th>
+                  <th width="120" style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="hosts-table-body">
+                <tr>
+                  <td colspan="5" class="loading-state">Loading hosts entries...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="list-footer-actions">
+            <button class="btn btn-secondary" id="btn-export-hosts" title="Download backup text of hosts">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+              Export
+            </button>
+            <button class="btn btn-secondary" id="btn-import-hosts" title="Upload hosts text file to replace">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+              Import
+            </button>
+            <input type="file" id="import-file-input" style="display:none;" accept=".txt,hosts">
+            <button class="btn btn-primary" id="btn-save-table" style="margin-left: auto;">
+              Save Changes to Hosts File
+            </button>
+          </div>
+        </div>
+
+        <!-- Audit Log Terminal Panel -->
+        <div class="card audit-card" style="margin-top: 24px;">
+          <div class="audit-header">
+            <h3>Console Audit Logs</h3>
+            <span class="audit-status">
+              <span class="pulse-ring"></span>
+              Live Sync Active
+            </span>
+          </div>
+          <div class="terminal-body" id="audit-terminal">
+            <div class="terminal-line"><span class="log-time">[--:--:--]</span> <span class="log-action">SYSTEM:</span> Initializing logs terminal...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 2: Raw Text Editor -->
+      <section id="tab-raw-editor" class="tab-pane">
+        <div class="card editor-card">
+          <div class="editor-header">
+            <div>
+              <h3>Direct Raw Editor</h3>
+              <p class="editor-subtitle">Directly edit the raw text of the hosts file. Valid syntax is required.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-save-raw">Save Raw Text</button>
+          </div>
+          <div class="editor-wrapper">
+            <div class="line-numbers" id="editor-line-numbers"></div>
+            <textarea id="raw-hosts-textarea" spellcheck="false" placeholder="# Load your hosts file..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 3: Backups & History -->
+      <section id="tab-backups" class="tab-pane">
+        <div class="card backups-card">
+          <div class="backups-header">
+            <div>
+              <h3>Hosts Backups & History</h3>
+              <p class="backups-subtitle">A backup is automatically created every time you save changes. You can restore any past backup below.</p>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="backups-table">
+              <thead>
+                <tr>
+                  <th>Backup File</th>
+                  <th>Date & Time Created</th>
+                  <th>File Size</th>
+                  <th width="180" style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="backups-table-body">
+                <tr>
+                  <td colspan="4" class="loading-state">Loading backups list...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 4: Console Settings -->
+      <section id="tab-settings" class="tab-pane">
+        <div class="card settings-card" style="max-width: 600px; margin: 0 auto;">
+          <div class="settings-header" style="margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+            <h3>Console Account Settings</h3>
+            <p class="settings-subtitle" style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Update your username and authentication password. Changing credentials will invalidate all current session log-ins.</p>
+          </div>
+          
+          <form id="settings-credentials-form" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="form-group">
+              <label for="settings-new-username">New Username</label>
+              <input type="text" id="settings-new-username" placeholder="skilledu" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="settings-current-password">Current Password</label>
+              <input type="password" id="settings-current-password" placeholder="••••••••" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="settings-new-password">New Password</label>
+              <input type="password" id="settings-new-password" placeholder="••••••••" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="settings-confirm-password">Confirm New Password</label>
+              <input type="password" id="settings-confirm-password" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px; align-self: flex-start;">
+              Update Credentials
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-overlay hidden" id="confirm-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Confirm Restore</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modal-message">Are you sure you want to restore the hosts file to this backup? The current file will be backed up automatically before restoring.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+        <button class="btn btn-danger" id="modal-confirm">Restore Backup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
